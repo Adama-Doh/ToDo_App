@@ -14,6 +14,13 @@ function itemTemplate (item) {
   `
 }
 
+// Initial Page load render
+ourHTML = items.map((item) => {
+  return itemTemplate(item)
+}).join('')
+
+itemList.insertAdjacentHTML("beforeend", ourHTML)
+
 // Create Feature
 form.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -65,7 +72,7 @@ document.addEventListener('click', (e) => {
               e.target.parentElement.parentElement
               .querySelector(".item-text").innerHTML = userInput
             })
-            
+
             .catch((err) => {
               console.log(err)
             })
